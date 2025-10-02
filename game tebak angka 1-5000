@@ -1,0 +1,33 @@
+#include <iostream>
+#include <cstdlib>   // untuk rand() dan srand()
+#include <ctime>     // untuk time()
+
+using namespace std;
+
+int main() {
+    srand(time(0)); // seed random
+    int angkaRahasia = rand() % 5000 + 1; // angka 1 - 5000
+    int tebakan;
+    int percobaan = 0;
+
+    cout << "=== GAME TEBAK ANGKA ===\n";
+    cout << "Saya sudah memilih angka antara 1 sampai 5000.\n";
+    cout << "Coba tebak!\n";
+
+    do {
+        cout << "Masukkan tebakanmu: ";
+        cin >> tebakan;
+        percobaan++;
+
+        if (tebakan > angkaRahasia) {
+            cout << "Terlalu besar!\n";
+        } else if (tebakan < angkaRahasia) {
+            cout << "Terlalu kecil!\n";
+        } else {
+            cout << "Selamat! Kamu berhasil menebak dalam "
+                 << percobaan << " percobaan.\n";
+        }
+    } while (tebakan != angkaRahasia);
+
+    return 0;
+}
