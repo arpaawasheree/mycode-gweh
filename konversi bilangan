@@ -1,0 +1,44 @@
+#include <iostream>
+#include <bitset>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    int angka, pilihan;
+    do {
+        cout << "\n=== Program Konversi Bilangan ===\n";
+        cout << "1. Desimal ke Biner\n";
+        cout << "2. Desimal ke Oktal\n";
+        cout << "3. Desimal ke Heksadesimal\n";
+        cout << "4. Keluar\n";
+        cout << "Pilih menu: ";
+        cin >> pilihan;
+
+        if (pilihan >= 1 && pilihan <= 3) {
+            cout << "Masukkan angka desimal: ";
+            cin >> angka;
+        }
+
+        switch (pilihan) {
+            case 1:
+                cout << angka << " (Desimal) = " 
+                     << bitset<16>(angka) << " (Biner)\n";
+                break;
+            case 2:
+                cout << angka << " (Desimal) = " 
+                     << oct << angka << " (Oktal)\n";
+                break;
+            case 3:
+                cout << angka << " (Desimal) = " 
+                     << hex << uppercase << angka << " (Heksadesimal)\n";
+                break;
+            case 4:
+                cout << "Terima kasih!\n";
+                break;
+            default:
+                cout << "Pilihan tidak valid!\n";
+        }
+    } while (pilihan != 4);
+
+    return 0;
+}
