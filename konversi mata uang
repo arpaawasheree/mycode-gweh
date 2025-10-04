@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    double rupiah;
+    int pilihan;
+
+    // Kurs contoh (silakan ganti sesuai nilai terbaru)
+    double usd = 15500;   // 1 USD = 15.500 IDR
+    double eur = 16500;   // 1 EUR = 16.500 IDR
+    double jpy = 105;     // 1 JPY = 105 IDR
+
+    do {
+        cout << "\n=== Program Konversi Mata Uang ===\n";
+        cout << "1. Rupiah ke USD\n";
+        cout << "2. Rupiah ke EUR\n";
+        cout << "3. Rupiah ke JPY\n";
+        cout << "4. Keluar\n";
+        cout << "Pilih menu: ";
+        cin >> pilihan;
+
+        if (pilihan >= 1 && pilihan <= 3) {
+            cout << "Masukkan jumlah Rupiah: ";
+            cin >> rupiah;
+        }
+
+        switch (pilihan) {
+            case 1:
+                cout << rupiah << " IDR = " << rupiah / usd << " USD\n";
+                break;
+            case 2:
+                cout << rupiah << " IDR = " << rupiah / eur << " EUR\n";
+                break;
+            case 3:
+                cout << rupiah << " IDR = " << rupiah / jpy << " JPY\n";
+                break;
+            case 4:
+                cout << "Terima kasih telah menggunakan program ini!\n";
+                break;
+            default:
+                cout << "Pilihan tidak valid!\n";
+        }
+    } while (pilihan != 4);
+
+    return 0;
+}
