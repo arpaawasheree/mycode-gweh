@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    double harga, diskon, total;
+
+    cout << "=== Program Penghitung Diskon ===\n";
+    cout << "Masukkan harga barang : Rp ";
+    cin >> harga;
+    cout << "Masukkan besar diskon (%): ";
+    cin >> diskon;
+
+    total = harga - (harga * diskon / 100);
+
+    cout << "Harga setelah diskon: Rp " << total << endl;
+
+    return 0;
+}
