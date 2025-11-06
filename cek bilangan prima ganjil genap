@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+bool cekPrima(int n) {
+    if (n < 2) return false; // bilangan < 2 bukan prima
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0)
+            return false; // jika ada pembagi selain 1 dan n, berarti bukan prima
+    }
+    return true;
+}
+
+int main() {
+    int angka;
+    cout << "Masukkan sebuah angka: ";
+    cin >> angka;
+
+    // Cek ganjil / genap
+    if (angka % 2 == 0)
+        cout << angka << " adalah bilangan genap.\n";
+    else
+        cout << angka << " adalah bilangan ganjil.\n";
+
+    // Cek prima / bukan
+    if (cekPrima(angka))
+        cout << angka << " juga bilangan prima.\n";
+    else
+        cout << angka << " bukan bilangan prima.\n";
+
+    return 0;
+}
