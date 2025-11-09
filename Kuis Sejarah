@@ -24,7 +24,7 @@ struct Soal {
     string pilihanC;
     string pilihanD;
     string pilihanE;
-    string jawabanBenar; // ubah jadi string agar bisa menyimpan "abe", "bde", dsb.
+    string jawabanBenar;
 };
 
 // ======================= DATABASE SOAL ======================= //
