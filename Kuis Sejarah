@@ -266,7 +266,7 @@ void pembukaan() {
     clearScreen();
     judulUtama();
     cout << "Halo, " << nama << "!\n" << endl;
-    cout << "Sebelum memulai, perhatikan prtunjuk pengerjaan berikut:" << endl;
+    cout << "Sebelum memulai, perhatikan petunjuk pengerjaan berikut:" << endl;
     cout << "   1. Terdapat 2 jenis soal: Pilihan Ganda Biasa dan Kompleks" << endl;
     cout << "   2. Waktu menjawab setiap soal adalah 30 detik," << endl;
     cout << "   3. Jika waktu habis, jawaban otomatis dianggap SALAH" << endl;
