@@ -268,11 +268,11 @@ void pembukaan() {
     cout << "Halo, " << nama << "!\n" << endl;
     cout << "Sebelum memulai, perhatikan petunjuk pengerjaan berikut:" << endl;
     cout << "   1. Terdapat 2 jenis soal: Pilihan Ganda Biasa dan Kompleks" << endl;
-    cout << "   2. Waktu menjawab setiap soal adalah 30 detik," << endl;
+    cout << "   2. Waktu menjawab setiap soal adalah 30 detik" << endl;
     cout << "   3. Jika waktu habis, jawaban otomatis dianggap SALAH" << endl;
     cout << "   4. Ketik huruf pilihan (a/b/c/d/e) untuk pilihan ganda biasa " << endl;
-    cout << "   5. Ketik lebih dari 1 huruf pilihan (misal: bde) untuk pilihan ganda kompleks " << endl;
-    cout << "   6. Urutan soal akan diacak setiap pengulangan" << endl;
+    cout << "   5. Ketik lebih dari 1 huruf pilihan (misal: bde) untuk pilihan ganda kompleks, ingat! tidak ada spasi antar jawaban" << endl;
+    cout << "   6. Urutan soal akan diacak setiap pengulangan dan bisa jadi acak atau berbeda dengan orang lain" << endl;
     cout << "   7. Waktu akan terus berjalan di latar belakang meskipun di tampilan waktu tampak berhenti" << endl;
     cout << "   8. Just For Fun Guys Chill" << endl;
     
