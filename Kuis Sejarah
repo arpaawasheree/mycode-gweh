@@ -2,11 +2,12 @@
 #include <string>
 #include <unistd.h>
 #include <thread>
+#include <chrono>
 #include <atomic>
 #include <vector>
 #include <algorithm>
 #include <random>
-#include <termios.h>
+#include <conio.h>
 #include <iomanip>
 using namespace std;
 
@@ -93,22 +94,17 @@ vector<Soal> soalPilihanGandaKompleks = {
     {"Berikut ini termasuk peninggalan kerajaan bercorak Buddha di Indonesia, yaitu…", 
      "Candi Borobudur", "Candi Mendut", "Candi Prambanan", "Arca Buddha", "Kitab Negarakertagama", "abd"}
 };
-
 // ======================= TERMINAL SETTINGS ======================= //
-struct termios orig_termios;
+void enableRawMode() {
+    // Implementasi spesifik platform untuk mengaktifkan mode raw
+    // Contoh di Windows menggunakan _setmode, di Linux menggunakan termios
+    // Di sini kita gunakan conio.h untuk kesederhanaan (tidak perlu implementasi)
+}
 
 void disableRawMode() {
-    tcsetattr(STDIN_FILENO, TCSAFLUSH, &orig_termios);
+    // Restore terminal mode if needed; left empty for conio.h usage
 }
 
-void enableRawMode() {
-    tcgetattr(STDIN_FILENO, &orig_termios);
-    struct termios raw = orig_termios;
-    raw.c_lflag &= ~(ECHO | ICANON);
-    raw.c_cc[VMIN] = 0;
-    raw.c_cc[VTIME] = 1;
-    tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
-}
 
 // ======================= FUNGSI TAMPILAN ======================= //
 void clearScreen() {
@@ -193,8 +189,7 @@ string normalizeAnswer(const string &s) {
         if (c >= 'a' && c <= 'e') tmp.push_back(c);
     }
     sort(tmp.begin(), tmp.end());
-    // hapus duplikat
-    tmp.erase(unique(tmp.begin(), tmp.end()), tmp.end());
+    tmp.erase(std::unique(tmp.begin(), tmp.end()), tmp.end());
     return tmp;
 }
 
@@ -213,27 +208,23 @@ string inputDenganTimer(int waktuDetik) {
     enableRawMode();
     
     while (!waktuHabis && !sudahMenjawab) {
-        char c;
-        int n = read(STDIN_FILENO, &c, 1);
-        
-        if (n == 1) {
-            if (c == '\n' || c == '\r') {
+        if (_kbhit()) {
+            char c = _getch();
+            if (c == '\r') { // ENTER
                 sudahMenjawab = true;
                 break;
-            } 
-            else if (c == 127 || c == 8) {
+            } else if (c == 8) { // BACKSPACE
                 if (!jawabanUser.empty()) {
                     jawabanUser.pop_back();
                     cout << "\b \b" << flush;
                 }
-            }
-            else if ((c >= 'a' && c <= 'e') || (c >= 'A' && c <= 'E')) {
-                char huruf = tolower(c);
-                jawabanUser += huruf;
-                cout << huruf << flush;
+            } else if ((c >= 'a' && c <= 'e') || (c >= 'A' && c <= 'E')) {
+                c = tolower(c);
+                jawabanUser += c;
+                cout << c << flush;
             }
         }
-        usleep(10000);
+        this_thread::sleep_for(chrono::milliseconds(10));
     }
     
     sudahMenjawab = true;
@@ -416,5 +407,10 @@ void menuUtama() {
 int main() {
     pembukaan();
     menuUtama();
+    system("pause");
+    cout << "Tekan ENTER untuk keluar...";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.get();
+
     return 0;
 }
