@@ -85,10 +85,10 @@ vector<Soal> soalPilihanGandaKompleks = {
      "Gotong royong", "Kepercayaan terhadap roh leluhur", "Musyawarah dalam kelompok", "Keterikatan dengan alam", "Sistem kasta", "acd"},
     
     {"Dampak positif masuknya Islam ke Indonesia adalah…", 
-     "Berkembangnya pendidikan pesantren", "Munculnya kerajaan bercorak Islam", "Meningkatnya perdagangan antarwilayah", "Terhapusnya seluruh budaya lokal", "Penggunaan huruf Arab Melayu", "abcde"},
+     "Berkembangnya pendidikan pesantren", "Munculnya kerajaan bercorak Islam", "Meningkatnya perdagangan antarwilayah", "Terhapusnya seluruh budaya lokal", "Penggunaan huruf Arab Melayu", "abce"},
     
     {"Peran penting pelaut Nusantara dalam jalur perdagangan internasional masa lampau adalah…", 
-     "Menjadi perantara antara Timur dan Barat", "Menjadi pelaut yang tangguh", "Menutup diri dari pedagang asing", "Membawa rempah-rempah ke luar negeri", "Mengembangkan pelabuhan dagang", "abcde"},
+     "Menjadi perantara antara Timur dan Barat", "Menjadi pelaut yang tangguh", "Menutup diri dari pedagang asing", "Membawa rempah-rempah ke luar negeri", "Mengembangkan pelabuhan dagang", "abde"},
     
     {"Berikut ini termasuk peninggalan kerajaan bercorak Buddha di Indonesia, yaitu…", 
      "Candi Borobudur", "Candi Mendut", "Candi Prambanan", "Arca Buddha", "Kitab Negarakertagama", "abd"}
@@ -266,12 +266,12 @@ void pembukaan() {
     clearScreen();
     judulUtama();
     cout << "Halo, " << nama << "!\n" << endl;
-    cout << "Sebelum memulai, perhatikan prtunjuk pengerjaan berikut:" << endl;
+    cout << "Sebelum memulai, perhatikan petunjuk pengerjaan berikut:" << endl;
     cout << "   1. Terdapat 2 jenis soal: Pilihan Ganda Biasa dan Kompleks" << endl;
-    cout << "   2. Waktu menjawab setiap soal adalah 30 detik," << endl;
+    cout << "   2. Waktu menjawab setiap soal adalah 30 detik" << endl;
     cout << "   3. Jika waktu habis, jawaban otomatis dianggap SALAH" << endl;
-    cout << "   4. Ketik huruf pilihan (a/b/c/d/e) untuk pilihan ganda biasa " << endl;
-    cout << "   5. Ketik lebih dari 1 huruf pilihan (misal: bde) untuk pilihan ganda kompleks " << endl;
+    cout << "   4. Ketik huruf pilihan (a/b/c/d/e) untuk pilihan ganda biasa" << endl;
+    cout << "   5. Ketik lebih dari 1 huruf pilihan (misal: bde) untuk pilihan ganda kompleks" << endl;
     cout << "   6. Urutan soal akan diacak setiap pengulangan" << endl;
     cout << "   7. Waktu akan terus berjalan di latar belakang meskipun di tampilan waktu tampak berhenti\n" << endl;
     
@@ -301,18 +301,19 @@ void tampilkanHasil(int skor, int total, string jenis) {
     cout << "\n";
     
     if (persentase == 100) {
-        cout << "SEMPURNA! Kamu luar biasa!" << endl;
+        cout << "Makan apa kok pinter banget" << endl;
     } else if (persentase >= 80) {
-        cout << "BAGUS SEKALI! Pertahankan!" << endl;
+        cout << "Gokil" << endl;
     } else if (persentase >= 60) {
-        cout << "LUMAYAN! Bisa lebih baik lagi!" << endl;
+        cout << "Lumayan lah" << endl;
     } else if (persentase >= 40) {
-        cout << "CUKUP! Perlu belajar lebih giat!" << endl;
+        cout << "Yakin ga ngulang?" << endl;
     } else {
-        cout << "SEMANGAT! Jangan menyerah, terus belajar!" << endl;
+        cout << "Wassalam" << endl;
     }
     cout << "\n===========================================\n" << endl;
 }
+
 
 // ======================= FUNGSI KUIS UTAMA ======================= //
 int jalankanKuis(vector<Soal>& daftarSoal, string jenisKuis) {
@@ -321,7 +322,6 @@ int jalankanKuis(vector<Soal>& daftarSoal, string jenisKuis) {
     clearScreen();
     cout << "=========================================" << endl;
     cout << jenisKuis;
-    
     cout << "=========================================" << endl;
     cout << "\n Mulai mengerjakan...\n" << endl;
     usleep(1000000);
@@ -380,31 +380,68 @@ void menuUtama() {
         cout << "\nPilih (1/2/3): ";
         getline(cin, pilihan);
         
-        if (pilihan == "1") {
-            // BAGIAN 2: PILIHAN GANDA KOMPLEKS
-            int skorPGK = jalankanKuis(soalPilihanGandaKompleks, "PILIHAN GANDA KOMPLEKS\n");
-            tampilkanHasil(skorPGK, soalPilihanGandaKompleks.size(), "PILIHAN GANDA KOMPLEKS");
-            
-            // Menu setelah PG Kompleks
-            cout << "PILIHAN SELANJUTNYA:" << endl;
-            cout << "   1. Ulangi Pilihan Ganda Biasa" << endl;
-            cout << "   2. Ulangi Pilihan Ganda Kompleks" << endl;
-            cout << "   3. Keluar dari kuis" << endl;
-            cout << "\nPilih (1/2/3): ";
-            getline(cin, pilihan);
-            
-            if (pilihan == "1") {
-                continue; // Kembali ke awal loop (PG Biasa)
-            } else if (pilihan == "2") {
-                // ulangi kompleks
-                continue;
-            } else {
-                mainLagi = false;
+        switch (pilihan[0]) {
+            case '1': {
+                // BAGIAN 2: PILIHAN GANDA KOMPLEKS
+                int skorPGK = jalankanKuis(soalPilihanGandaKompleks, "PILIHAN GANDA KOMPLEKS\n");
+                tampilkanHasil(skorPGK, soalPilihanGandaKompleks.size(), "PILIHAN GANDA KOMPLEKS");
+                
+                // Menu setelah PG Kompleks
+                cout << "PILIHAN SELANJUTNYA:" << endl;
+                cout << "   1. Ulangi Pilihan Ganda Biasa" << endl;
+                cout << "   2. Ulangi Pilihan Ganda Kompleks" << endl;
+                cout << "   3. Keluar dari kuis" << endl;
+                cout << "\nPilih (1/2/3): ";
+                getline(cin, pilihan);
+                
+                switch (pilihan[0]) {
+                    case '1':
+                        // Kembali ke awal loop (PG Biasa)
+                        continue;
+                        break;
+                    case '2':
+                        // Ulangi kompleks
+                        {
+                            bool ulangiKompleks = true;
+                            while (ulangiKompleks) {
+                                int skorPGK2 = jalankanKuis(soalPilihanGandaKompleks, "PILIHAN GANDA KOMPLEKS\n");
+                                tampilkanHasil(skorPGK2, soalPilihanGandaKompleks.size(), "PILIHAN GANDA KOMPLEKS");
+                                
+                                cout << "PILIHAN SELANJUTNYA:" << endl;
+                                cout << "   1. Ulangi Pilihan Ganda Biasa" << endl;
+                                cout << "   2. Ulangi Pilihan Ganda Kompleks" << endl;
+                                cout << "   3. Keluar dari kuis" << endl;
+                                cout << "\nPilih (1/2/3): ";
+                                getline(cin, pilihan);
+                                
+                                switch (pilihan[0]) {
+                                    case '1':
+                                        ulangiKompleks = false;
+                                        break;
+                                    case '2':
+                                        continue;
+                                        break;
+                                    default:
+                                        ulangiKompleks = false;
+                                        mainLagi = false;
+                                        break;
+                                }
+                            }
+                        }
+                        break;
+                    default:
+                        mainLagi = false;
+                        break;
+                }
+                break;
             }
-        } else if (pilihan == "2") {
-            continue; // Ulangi PG Biasa
-        } else {
-            mainLagi = false;
+            case '2':
+                // Ulangi PG Biasa
+                continue;
+                break;
+            default:
+                mainLagi = false;
+                break;
         }
     }
     
