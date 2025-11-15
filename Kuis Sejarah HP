@@ -24,11 +24,10 @@ struct Soal {
     string pilihanC;
     string pilihanD;
     string pilihanE;
-    string jawabanBenar; // ubah jadi string agar bisa menyimpan "abe", "bde", dsb.
+    string jawabanBenar; 
 };
 
 // ======================= DATABASE SOAL ======================= //
-// PILIHAN GANDA BIASA (10 SOAL)
 vector<Soal> soalPilihanGanda = {
     {"Perubahan cara hidup manusia praaksara dari nomaden menjadi menetap terjadi karena...", 
      "Meningkatnya kegiatan berburu", "Munculnya sistem kasta", "Ditemukannya cara bercocok tanam ", "Menurunnya suhu bumi", "Adanya peperangan antarkelompok", "c"},
