@@ -270,7 +270,7 @@ void pembukaan() {
     cout << "   2. Waktu menjawab setiap soal adalah 30 detik" << endl;
     cout << "   3. Jika waktu habis, jawaban otomatis dianggap SALAH" << endl;
     cout << "   4. Ketik huruf pilihan (a/b/c/d/e) untuk pilihan ganda biasa" << endl;
-    cout << "   5. Ketik lebih dari 1 huruf pilihan (misal: bde) untuk pilihan ganda kompleks" << endl;
+    cout << "   5. Ketik lebih dari 1 huruf pilihan (misal: bde) untuk pilihan ganda kompleks, ingat! tidak ada spasi antarjawaban" << endl;
     cout << "   6. Urutan soal akan diacak setiap pengulangan" << endl;
     cout << "   7. Waktu akan terus berjalan di latar belakang meskipun di tampilan waktu tampak berhenti\n" << endl;
     
