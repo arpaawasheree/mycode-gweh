@@ -129,9 +129,9 @@ void tampilkanCredit() {
     cout << "                TERIMA KASIH                  " << endl;
     cout << "===========================================" << endl;
     cout << "\nANGGOTA KELOMPOK TONGSENG BU SOLEH:\n" << endl;
-    cout << "   1. Arva Al Ghifari Prabowo - Kepala Projek, Programmer, Presentasi" << endl;
-    cout << "   2. Urbanus Advent Atmaja - Programmer, Presentasi" << endl;
-    cout << "   3. Reva Hayyu Krisantya - Presentasi" << endl;
+    cout << "   1. Arva Al Ghifari Prabowo / 08 - Kepala Projek, Programmer, Presentasi" << endl;
+    cout << "   2. Urbanus Advent Atmaja / 33 - Editor Video, Presentasi" << endl;
+    cout << "   3. Reva Hayyu Krisantya / 27 - Presentasi" << endl;
     cout << "\nMata Pelajaran: Informatika" << endl;
     cout << "Kelas: X-E4" << endl;
     cout << "Guru Pembimbing: Pak Razqa" << endl;
